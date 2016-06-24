@@ -14,6 +14,9 @@
 		94830C5B1D1D5F9300DD94E9 /* VRPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94830C5A1D1D5F9300DD94E9 /* VRPlaygroundTests.swift */; };
 		94830C661D1D5F9300DD94E9 /* VRPlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94830C651D1D5F9300DD94E9 /* VRPlaygroundUITests.swift */; };
 		94830C7A1D1D5FDB00DD94E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94830C751D1D5FDB00DD94E9 /* ViewController.swift */; };
+		99771A641D1D6E4C00EC291A /* RightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99771A631D1D6E4C00EC291A /* RightView.swift */; };
+		99771A661D1D6EC800EC291A /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99771A651D1D6EC800EC291A /* LeftView.swift */; };
+		99771A681D1D730D00EC291A /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99771A671D1D730D00EC291A /* SceneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		94830C651D1D5F9300DD94E9 /* VRPlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlaygroundUITests.swift; sourceTree = "<group>"; };
 		94830C671D1D5F9300DD94E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94830C751D1D5FDB00DD94E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		99771A631D1D6E4C00EC291A /* RightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView.swift; sourceTree = "<group>"; };
+		99771A651D1D6EC800EC291A /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
+		99771A671D1D730D00EC291A /* SceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,9 @@
 		94830C791D1D5FDB00DD94E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				99771A671D1D730D00EC291A /* SceneView.swift */,
+				99771A631D1D6E4C00EC291A /* RightView.swift */,
+				99771A651D1D6EC800EC291A /* LeftView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +250,7 @@
 				TargetAttributes = {
 					94830C411D1D5F9300DD94E9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = N7DN9W93BF;
 					};
 					94830C551D1D5F9300DD94E9 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -304,8 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99771A641D1D6E4C00EC291A /* RightView.swift in Sources */,
+				99771A681D1D730D00EC291A /* SceneView.swift in Sources */,
 				94830C7A1D1D5FDB00DD94E9 /* ViewController.swift in Sources */,
 				94830C461D1D5F9300DD94E9 /* AppDelegate.swift in Sources */,
+				99771A661D1D6EC800EC291A /* LeftView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,11 +462,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VRPlayground/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leapfrog.VRPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -461,11 +477,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VRPlayground/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leapfrog.VRPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -534,6 +553,7 @@
 				94830C6C1D1D5F9300DD94E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94830C6D1D1D5F9300DD94E9 /* Build configuration list for PBXNativeTarget "VRPlaygroundTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +562,7 @@
 				94830C6F1D1D5F9300DD94E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94830C701D1D5F9300DD94E9 /* Build configuration list for PBXNativeTarget "VRPlaygroundUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +571,7 @@
 				94830C721D1D5F9300DD94E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
