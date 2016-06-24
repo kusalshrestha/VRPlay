@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VRPlayground/Controller/ViewController.swift"
-            timestampString = "488471145.338904"
+            timestampString = "488498127.095662"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "setupMotion()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VRPlayground/Controller/ViewController.swift"
-            timestampString = "488471145.338904"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "setupMotion()"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "displayInteractiveNodes()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

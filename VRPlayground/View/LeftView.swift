@@ -21,7 +21,7 @@ class LeftView: SCNView {
     override init(frame: CGRect, options: [String : AnyObject]?) {
         super.init(frame: frame, options: nil)
         
-//        self.backgroundColor = UIColor.redColor()
+        self.backgroundColor = UIColor.redColor()
     }
     
     required init?(coder aDecoder: NSCoder) {

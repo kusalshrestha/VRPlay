@@ -21,7 +21,7 @@ class RightView: SCNView {
     override init(frame: CGRect, options: [String : AnyObject]?) {
         super.init(frame: frame, options: nil)
         
-//        self.backgroundColor = UIColor.greenColor()
+        self.backgroundColor = UIColor.greenColor()
     }
     
     required init?(coder aDecoder: NSCoder) {
