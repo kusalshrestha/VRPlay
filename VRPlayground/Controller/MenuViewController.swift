@@ -42,7 +42,7 @@ class MenuViewController: UIViewController, SCNSceneRendererDelegate {
         let camX = 0.0 as Float
         let camY = 0.0 as Float
         let camZ = 0.0 as Float
-        let zFar = 30.0
+        let zFar = 10000.0
         
         let leftCamera = SCNCamera()
         let rightCamera = SCNCamera()
@@ -93,7 +93,7 @@ class MenuViewController: UIViewController, SCNSceneRendererDelegate {
         createviewFinder()
         displayInteractiveNodes()
         
-        scene?.background.contents = [UIImage(named: "skybox1.png") as UIImage!]
+        scene?.background.contents = ["right1.png", "left1.png", "top1.png", "bottom1.png", "front1.png", "back1.png"]
     }
     
     //MARK: Viewfinder, used to aim and select, methods
@@ -114,17 +114,17 @@ class MenuViewController: UIViewController, SCNSceneRendererDelegate {
     //MARK: Do some stuff
     
     func launchSomeAction(nodeToUpdate: SCNNode){
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        switch nodeToUpdate.name! {
-            case "Learn" :
-                let learnVC = sb.instantiateViewControllerWithIdentifier("learnVC")
-                self.presentViewController(learnVC, animated: true, completion: nil)
-            case "Play" :
-                let playVC = sb.instantiateViewControllerWithIdentifier("playVC")
-                self.presentViewController(playVC, animated: true, completion: nil)
-            default :
-                break
-        }
+//        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+//        switch nodeToUpdate.name! {
+//            case "Learn" :
+//                let learnVC = sb.instantiateViewControllerWithIdentifier("learnVC")
+//                self.presentViewController(learnVC, animated: true, completion: nil)
+//            case "Play" :
+//                let playVC = sb.instantiateViewControllerWithIdentifier("playVC")
+//                self.presentViewController(playVC, animated: true, completion: nil)
+//            default :
+//                break
+//        }
         
     }
     
@@ -135,36 +135,19 @@ class MenuViewController: UIViewController, SCNSceneRendererDelegate {
     
     //MARK: Interactive Nodes
     func displayInteractiveNodes(){
+        let textGeometry1 = SCNText(string: "Learn", extrusionDepth: 0)
+        let textNode1 = SCNNode(geometry: textGeometry1)
+        textNode1.name = "Learn"
+        textNode1.position = SCNVector3(x:-60, y: 2, z: -60)
+        textNode1.eulerAngles.y = Float(-0.2)
+        scene?.rootNode.addChildNode(textNode1)
         
-        //first node
-//        let animal = SCNScene(named: Assets.Animal.dog)
-//        dog = animal?.rootNode.childNodeWithName("SketchUp", recursively: false)
-//        dog?.position = SCNVector3(x: 0, y: 2, z: -5)
-        
-//        var v1 = SCNVector3Zero
-//        var v2 = SCNVector3Zero
-//        dog?.getBoundingBoxMin(&v1, max: &v2)
-//        print(v1, v2)
-
-//        scene?.rootNode.addChildNode(dog!)
-        
-        let boxGeometry1 = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
-        let boxMaterial1 = SCNMaterial()
-        boxMaterial1.diffuse.contents = UIColor.greenColor()
-        boxGeometry1.materials = [boxMaterial1]
-        boxNode1 = SCNNode(geometry: boxGeometry1)
-        boxNode1?.name = "Learn"
-        boxNode1?.position = SCNVector3(x:-2, y: 2, z: -3)
-        scene?.rootNode.addChildNode(boxNode1!)
-        
-        let boxGeometry2 = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
-        let boxMaterial2 = SCNMaterial()
-        boxMaterial2.diffuse.contents = UIColor.purpleColor()
-        boxGeometry2.materials = [boxMaterial2]
-        boxNode2 = SCNNode(geometry: boxGeometry2)
-        boxNode2?.name = "Play"
-        boxNode2?.position = SCNVector3(x: 2, y: 2, z: -3)
-        scene?.rootNode.addChildNode(boxNode2!)
+        let textGeometry2 = SCNText(string: "Play", extrusionDepth: 0)
+        let textNode2 = SCNNode(geometry: textGeometry2)
+        textNode2.name = "Play"
+        textNode2.position = SCNVector3(x: 60, y: 2, z: -60)
+        textNode2.eulerAngles.y = Float(-0.2)
+        scene?.rootNode.addChildNode(textNode2)
     }
     
     //MARK: Scene Renderer
@@ -200,12 +183,15 @@ class MenuViewController: UIViewController, SCNSceneRendererDelegate {
                 if (hitNode != nil) {
                     if let sNode = hitNode {
                         self.selectedNode = sNode
-                        self.viewFinder.updateViewFinder(true)
-                        self.launchSomeAction(self.selectedNode!)
+                        self.viewFinder.updateViewFinder(true, completion: { 
+                            self.launchSomeAction(self.selectedNode!)
+                        })
                     }
                 } else {
                     self.selectedNode = nil
-                    self.viewFinder.updateViewFinder(false)
+                    self.viewFinder.updateViewFinder(false, completion: { 
+                        
+                    })
                 }
             }
         }

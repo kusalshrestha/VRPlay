@@ -14,7 +14,7 @@ import Foundation
 //import Darwin
 import CoreGraphics
 
-class CatagoryViewController: UIViewController, SCNSceneRendererDelegate {
+class LearnViewController: UIViewController, SCNSceneRendererDelegate {
 
     @IBOutlet var leftSceneView: SCNView!
     @IBOutlet var rightSceneView: SCNView!

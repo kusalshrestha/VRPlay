@@ -167,12 +167,15 @@ class DetailViewController: UIViewController, SCNSceneRendererDelegate {
                 if (hitNode != nil) {
                     if let sNode = hitNode {
                         self.selectedNode = sNode
-                        self.viewFinder.updateViewFinder(true)
-                        self.launchSomeAction(self.selectedNode!)
+                        self.viewFinder.updateViewFinder(true, completion: { (isSuccess) in
+                            self.launchSomeAction(self.selectedNode!)
+                        })
                     }
                 } else {
                     self.selectedNode = nil
-                    self.viewFinder.updateViewFinder(false)
+                    self.viewFinder.updateViewFinder(true, completion: { (isSuccess) in
+                    // no change
+                    })
                 }
             }
         }

@@ -25,7 +25,7 @@ class ViewFinder {
         
         let viewFinder3 = SCNCylinder(radius: 0.1, height:0.0001)
         viewfinderNode3 = SCNNode(geometry: viewFinder3)
-        viewfinderNode3.position = SCNVector3(x: 0, y: 0, z:-60)
+        viewfinderNode3.position = SCNVector3(x: 0, y: 0, z:-1000)
         viewfinderNode3.pivot = SCNMatrix4MakeRotation(Float(M_PI) / 2, 1.0, 0.0, 0.0)
     //    self.camerasNode!.addChildNode(self.viewfinderNode3!)
         
@@ -50,7 +50,7 @@ class ViewFinder {
     }
 
 
-    func updateViewFinder(isLoading: Bool) {
+    func updateViewFinder(isLoading: Bool, completion: (() -> ())) {
         
         // Update the viewFinder Nodes
         if isLoading {
@@ -60,12 +60,14 @@ class ViewFinder {
             self.viewfinderNode1!.geometry?.firstMaterial!.diffuse.contents = UIColor(red: 42/255.0, green: 128/255.0, blue: 185/255.0, alpha: 1)
             if self.loadingRadius > 0.1 {
                 self.loadingRadius = 0.03
+                completion()
             }
         } else {
             self.viewfinderNode2?.hidden = true
             self.loadingRadius = 0.03
             self.viewfinderNode1!.geometry?.setValue(CGFloat(self.loadingRadius!), forKey: "radius")
             self.viewfinderNode1!.geometry?.firstMaterial!.diffuse.contents = UIColor(red: 42/255.0, green: 128/255.0, blue: 185/255.0, alpha: 0.7)
+            completion()
         }
     }
 
