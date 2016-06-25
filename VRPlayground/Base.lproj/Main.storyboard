@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VRPlayground" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuVC" id="BYZ-38-t0r" customClass="MenuViewController" customModule="VRPlayground" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,7 +45,105 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="307"/>
+            <point key="canvasLocation" x="246" y="307"/>
+        </scene>
+        <!--Catagory View Controller-->
+        <scene sceneID="2eA-qj-RtA">
+            <objects>
+                <viewController storyboardIdentifier="learnVC" id="6Bo-1j-OZa" customClass="CatagoryViewController" customModule="VRPlayground" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jeg-In-KPT"/>
+                        <viewControllerLayoutGuide type="bottom" id="byG-uY-8vN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h1b-uC-8tk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqU-qV-K31">
+                                <rect key="frame" x="0.0" y="294" width="320" height="274"/>
+                            </sceneKitView>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A88-WR-LIU">
+                                <rect key="frame" x="0.0" y="20" width="320" height="274"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="HeV-iM-TAZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HeV-iM-TAZ"/>
+                                    </mask>
+                                </variation>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tqU-qV-K31" secondAttribute="trailing" id="DPc-ks-xM5"/>
+                            <constraint firstItem="A88-WR-LIU" firstAttribute="top" secondItem="Jeg-In-KPT" secondAttribute="bottom" id="Rh7-aR-9en"/>
+                            <constraint firstItem="tqU-qV-K31" firstAttribute="height" secondItem="A88-WR-LIU" secondAttribute="height" id="Vwj-Z2-HZd"/>
+                            <constraint firstItem="byG-uY-8vN" firstAttribute="top" secondItem="tqU-qV-K31" secondAttribute="bottom" id="kvA-6k-9N6"/>
+                            <constraint firstAttribute="trailing" secondItem="A88-WR-LIU" secondAttribute="trailing" id="pIu-FW-uCZ"/>
+                            <constraint firstItem="tqU-qV-K31" firstAttribute="leading" secondItem="h1b-uC-8tk" secondAttribute="leading" id="sjO-n4-IwS"/>
+                            <constraint firstItem="A88-WR-LIU" firstAttribute="leading" secondItem="h1b-uC-8tk" secondAttribute="leading" id="ucn-BH-x66"/>
+                            <constraint firstItem="tqU-qV-K31" firstAttribute="top" secondItem="A88-WR-LIU" secondAttribute="bottom" id="xMW-iS-IAw"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="leftSceneView" destination="A88-WR-LIU" id="Luf-aE-cUf"/>
+                        <outlet property="rightSceneView" destination="tqU-qV-K31" id="0Na-Se-1Ms"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Dw-wH-mST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="608" y="307"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="aQw-WZ-7Iy">
+            <objects>
+                <viewController storyboardIdentifier="playVC" id="WhQ-ie-xqF" customClass="DetailViewController" customModule="VRPlayground" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eqa-9T-uPF"/>
+                        <viewControllerLayoutGuide type="bottom" id="znp-Um-9Rt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pTF-Dx-9EW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sco-WY-mtk">
+                                <rect key="frame" x="0.0" y="294" width="320" height="274"/>
+                            </sceneKitView>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQD-g1-cwy">
+                                <rect key="frame" x="0.0" y="20" width="320" height="274"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="rks-ob-LsR"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rks-ob-LsR"/>
+                                    </mask>
+                                </variation>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sco-WY-mtk" firstAttribute="top" secondItem="CQD-g1-cwy" secondAttribute="bottom" id="27f-gm-FK8"/>
+                            <constraint firstItem="sco-WY-mtk" firstAttribute="height" secondItem="CQD-g1-cwy" secondAttribute="height" id="LXG-R7-6pd"/>
+                            <constraint firstItem="CQD-g1-cwy" firstAttribute="leading" secondItem="pTF-Dx-9EW" secondAttribute="leading" id="NAj-Qj-ypF"/>
+                            <constraint firstItem="sco-WY-mtk" firstAttribute="leading" secondItem="pTF-Dx-9EW" secondAttribute="leading" id="Pww-Aa-T2w"/>
+                            <constraint firstAttribute="trailing" secondItem="CQD-g1-cwy" secondAttribute="trailing" id="TOo-VU-DcR"/>
+                            <constraint firstItem="znp-Um-9Rt" firstAttribute="top" secondItem="sco-WY-mtk" secondAttribute="bottom" id="Wzc-4k-SLR"/>
+                            <constraint firstAttribute="trailing" secondItem="sco-WY-mtk" secondAttribute="trailing" id="d68-cE-0n4"/>
+                            <constraint firstItem="CQD-g1-cwy" firstAttribute="top" secondItem="Eqa-9T-uPF" secondAttribute="bottom" id="v0O-Xn-nuR"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="leftSceneView" destination="CQD-g1-cwy" id="JgY-ml-ls1"/>
+                        <outlet property="rightSceneView" destination="sco-WY-mtk" id="KVv-uq-Hi1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1EE-ie-VHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975" y="307"/>
         </scene>
     </scenes>
 </document>

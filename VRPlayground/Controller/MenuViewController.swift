@@ -6,26 +6,8 @@ import Foundation
 //import Darwin
 import CoreGraphics
 
-// MARK: Custom Node Class
-class NodeClass: SCNNode {
-    var color1:UIColor?
-    var color2:UIColor?
-    var firstColor:Bool?
-    
-    var child: SCNNode? {
-        didSet {
-            self.addChildNode(child!)
-        }
-    }
-    
-    func initWithColors(c1: UIColor, c2: UIColor){
-        self.color1 = c1
-        self.color2 = c2
-    }
-}
-
 //MARK: View Controller
-class ViewController: UIViewController, SCNSceneRendererDelegate {
+class MenuViewController: UIViewController, SCNSceneRendererDelegate {
     
     @IBOutlet weak var leftSceneView: SCNView!
     @IBOutlet weak var rightSceneView: SCNView!
@@ -42,9 +24,6 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
     var viewfinderNode1 : SCNNode?
     var viewfinderNode2 : SCNNode?
     var viewfinderNode3 : SCNNode?
-    
-    var firstInteractiveNode : NodeClass?
-    var secondInteractiveNode : NodeClass?
     
     var selectedNode : SCNNode?
     
@@ -113,6 +92,8 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
         
         createviewFinder()
         displayInteractiveNodes()
+        
+        scene?.background.contents = [UIImage(named: "skybox1.png") as UIImage!]
     }
     
     //MARK: Viewfinder, used to aim and select, methods
@@ -131,62 +112,59 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     //MARK: Do some stuff
+    
     func launchSomeAction(nodeToUpdate: SCNNode){
-        //stuff
-//        if (selectedNode != nil){
-//            if(nodeToUpdate.firstColor == true){
-//                nodeToUpdate.geometry?.firstMaterial?.diffuse.contents = nodeToUpdate.color2
-//                nodeToUpdate.firstColor = false
-//            }else{
-//                nodeToUpdate.geometry?.firstMaterial?.diffuse.contents = nodeToUpdate.color1
-//                nodeToUpdate.firstColor = true
-//            }
-//        }
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        switch nodeToUpdate.name! {
+            case "Learn" :
+                let learnVC = sb.instantiateViewControllerWithIdentifier("learnVC")
+                self.presentViewController(learnVC, animated: true, completion: nil)
+            case "Play" :
+                let playVC = sb.instantiateViewControllerWithIdentifier("playVC")
+                self.presentViewController(playVC, animated: true, completion: nil)
+            default :
+                break
+        }
+        
     }
-    var dog: SCNNode?
+    
+//    var dog: SCNNode?
+    
+    var boxNode1: SCNNode?
+    var boxNode2: SCNNode?
+    
     //MARK: Interactive Nodes
     func displayInteractiveNodes(){
         
         //first node
-        let animal = SCNScene(named: Assets.Animal.dog)
-        dog = animal?.rootNode.childNodeWithName("SketchUp", recursively: false)
-        dog?.position = SCNVector3(x: 0, y: 2, z: -5)
-        let box = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-        let material = SCNMaterial()
+//        let animal = SCNScene(named: Assets.Animal.dog)
+//        dog = animal?.rootNode.childNodeWithName("SketchUp", recursively: false)
+//        dog?.position = SCNVector3(x: 0, y: 2, z: -5)
         
-        var v1 = SCNVector3Zero
-        var v2 = SCNVector3Zero
-        dog?.getBoundingBoxMin(&v1, max: &v2)
-        print(v1, v2)
-        material.diffuse.contents = UIColor.redColor()
-        box.materials = [material]
-        let boxNode = SCNNode(geometry: box)
-        boxNode.position = SCNVector3(x: 0, y: 2, z: -5)
-        boxNode.name = "mybox"
-//        scene?.rootNode.addChildNode(boxNode)
-        scene?.rootNode.addChildNode(dog!)
-//        firstInteractiveNode = NodeClass()
-//        firstInteractiveNode!.geometry = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0.1)
-//        firstInteractiveNode!.pivot = SCNMatrix4MakeRotation(Float(M_PI_2), 0.0, 1.0, 0.0)
-//        firstInteractiveNode!.position = SCNVector3(x: 4, y: 0, z: -1)
-//        
-//        firstInteractiveNode?.initWithColors(UIColor.blueColor(), c2: UIColor.yellowColor())
-//        firstInteractiveNode!.geometry?.firstMaterial?.diffuse.contents = firstInteractiveNode?.color1
-//        firstInteractiveNode?.firstColor = true
-//        
-//        scene!.rootNode.addChildNode(firstInteractiveNode!)
-//        
-//        //second node
-//        secondInteractiveNode = NodeClass()
-//        secondInteractiveNode!.geometry = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0.1)
-//        secondInteractiveNode!.pivot = SCNMatrix4MakeRotation(Float(M_PI_2), 0.0, 1.0, 0.0)
-//        secondInteractiveNode!.position = SCNVector3(x: 4, y: 0, z: 1)
-//        
-//        secondInteractiveNode?.initWithColors(UIColor.purpleColor(), c2: UIColor.yellowColor())
-//        secondInteractiveNode!.geometry?.firstMaterial?.diffuse.contents = secondInteractiveNode?.color1
-//        secondInteractiveNode?.firstColor = true
-//        
-//        scene!.rootNode.addChildNode(secondInteractiveNode!)
+//        var v1 = SCNVector3Zero
+//        var v2 = SCNVector3Zero
+//        dog?.getBoundingBoxMin(&v1, max: &v2)
+//        print(v1, v2)
+
+//        scene?.rootNode.addChildNode(dog!)
+        
+        let boxGeometry1 = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
+        let boxMaterial1 = SCNMaterial()
+        boxMaterial1.diffuse.contents = UIColor.greenColor()
+        boxGeometry1.materials = [boxMaterial1]
+        boxNode1 = SCNNode(geometry: boxGeometry1)
+        boxNode1?.name = "Learn"
+        boxNode1?.position = SCNVector3(x:-2, y: 2, z: -3)
+        scene?.rootNode.addChildNode(boxNode1!)
+        
+        let boxGeometry2 = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
+        let boxMaterial2 = SCNMaterial()
+        boxMaterial2.diffuse.contents = UIColor.purpleColor()
+        boxGeometry2.materials = [boxMaterial2]
+        boxNode2 = SCNNode(geometry: boxGeometry2)
+        boxNode2?.name = "Play"
+        boxNode2?.position = SCNVector3(x: 2, y: 2, z: -3)
+        scene?.rootNode.addChildNode(boxNode2!)
     }
     
     //MARK: Scene Renderer
@@ -211,11 +189,9 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
                 let hitNodes = self.scene?.rootNode.hitTestWithSegmentFromPoint(pFrom, toPoint: pTo, options:nil)
                 var hitNode: SCNNode?
                 for hn in hitNodes! {
-//                    print(hn.node.parentNode?.name)
-                    if let _ = hn.node.parentNode?.name {
-                        if hn.node.parentNode?.name! == "SketchUp" {
+                    if let _ = hn.node.name {
+                        if hn.node.name! == "Learn" || hn.node.name! == "Play" {
                             hitNode = hn.node
-                            print("hit")
                             break
                         }
                     }
