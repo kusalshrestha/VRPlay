@@ -132,16 +132,16 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
     
     //MARK: Do some stuff
     func launchSomeAction(nodeToUpdate: SCNNode){
-        //stuff
-//        if (selectedNode != nil){
-//            if(nodeToUpdate.firstColor == true){
-//                nodeToUpdate.geometry?.firstMaterial?.diffuse.contents = nodeToUpdate.color2
-//                nodeToUpdate.firstColor = false
-//            }else{
-//                nodeToUpdate.geometry?.firstMaterial?.diffuse.contents = nodeToUpdate.color1
-//                nodeToUpdate.firstColor = true
-//            }
-//        }
+        let audioNode = SCNNode()
+        let audioSource = SCNAudioSource(fileNamed: "elephants.mp3")!
+        let audioPlayer = SCNAudioPlayer(source: audioSource)
+        
+        audioNode.addAudioPlayer(audioPlayer)
+        
+        let play = SCNAction.playAudioSource(audioSource, waitForCompletion: true)
+        audioNode.runAction(play)
+        
+print("launch")
     }
     var dog: SCNNode?
     //MARK: Interactive Nodes
@@ -224,12 +224,15 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
                 if (hitNode != nil) {
                     if let sNode = hitNode {
                         self.selectedNode = sNode
-                        self.viewFinder.updateViewFinder(true)
-                        self.launchSomeAction(self.selectedNode!)
+                        self.viewFinder.updateViewFinder(true, completion: { (isSuccess) in
+                            self.launchSomeAction(self.selectedNode!)
+                        })
                     }
                 } else {
                     self.selectedNode = nil
-                    self.viewFinder.updateViewFinder(false)
+                    self.viewFinder.updateViewFinder(false, completion: { (isSuccess) in
+                        // no any change
+                    })
                 }
             }
         }

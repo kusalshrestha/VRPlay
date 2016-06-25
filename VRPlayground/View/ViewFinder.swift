@@ -50,7 +50,7 @@ class ViewFinder {
     }
 
 
-    func updateViewFinder(isLoading: Bool) {
+    func updateViewFinder(isLoading: Bool, completion: (Bool -> Void)) {
         
         // Update the viewFinder Nodes
         if isLoading {
@@ -60,12 +60,14 @@ class ViewFinder {
             self.viewfinderNode1!.geometry?.firstMaterial!.diffuse.contents = UIColor(red: 42/255.0, green: 128/255.0, blue: 185/255.0, alpha: 1)
             if self.loadingRadius > 0.1 {
                 self.loadingRadius = 0.03
+                completion(true)
             }
         } else {
             self.viewfinderNode2?.hidden = true
             self.loadingRadius = 0.03
             self.viewfinderNode1!.geometry?.setValue(CGFloat(self.loadingRadius!), forKey: "radius")
             self.viewfinderNode1!.geometry?.firstMaterial!.diffuse.contents = UIColor(red: 42/255.0, green: 128/255.0, blue: 185/255.0, alpha: 0.7)
+            completion(false)
         }
     }
 

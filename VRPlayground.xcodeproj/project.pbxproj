@@ -19,6 +19,11 @@
 		94830CBE1D1DCA8D00DD94E9 /* ViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94830CBD1D1DCA8D00DD94E9 /* ViewFinder.swift */; };
 		94830CC01D1DCFA700DD94E9 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94830CBF1D1DCFA700DD94E9 /* Camera.swift */; };
 		94830CC21D1DD81A00DD94E9 /* Scene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 94830CC11D1DD81A00DD94E9 /* Scene.scn */; };
+		94C04D001D1E37AB006900C3 /* QuestionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C04CFF1D1E37AB006900C3 /* QuestionsConstants.swift */; };
+		94C04D021D1E385C006900C3 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C04D011D1E385C006900C3 /* StringConstants.swift */; };
+		94C04D041D1E393A006900C3 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C04D031D1E393A006900C3 /* KeyConstants.swift */; };
+		94C04D061D1E3C57006900C3 /* AssetsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C04D051D1E3C57006900C3 /* AssetsConstants.swift */; };
+		94C04D081D1E4431006900C3 /* elephants.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94C04D071D1E4431006900C3 /* elephants.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		94830CBD1D1DCA8D00DD94E9 /* ViewFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFinder.swift; sourceTree = "<group>"; };
 		94830CBF1D1DCFA700DD94E9 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		94830CC11D1DD81A00DD94E9 /* Scene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Scene.scn; sourceTree = "<group>"; };
+		94C04CFF1D1E37AB006900C3 /* QuestionsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsConstants.swift; sourceTree = "<group>"; };
+		94C04D011D1E385C006900C3 /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		94C04D031D1E393A006900C3 /* KeyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
+		94C04D051D1E3C57006900C3 /* AssetsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsConstants.swift; sourceTree = "<group>"; };
+		94C04D071D1E4431006900C3 /* elephants.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = elephants.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,7 @@
 				94830C741D1D5FDB00DD94E9 /* Controller */,
 				94830C451D1D5F9300DD94E9 /* AppDelegate.swift */,
 				94830CC11D1DD81A00DD94E9 /* Scene.scn */,
+				94C04D071D1E4431006900C3 /* elephants.mp3 */,
 				94830C491D1D5F9300DD94E9 /* Main.storyboard */,
 				94830C4C1D1D5F9300DD94E9 /* Assets.xcassets */,
 				94830CB91D1DBE2300DD94E9 /* Art.scnassets */,
@@ -145,6 +156,10 @@
 		94830C731D1D5FDB00DD94E9 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				94C04CFF1D1E37AB006900C3 /* QuestionsConstants.swift */,
+				94C04D011D1E385C006900C3 /* StringConstants.swift */,
+				94C04D031D1E393A006900C3 /* KeyConstants.swift */,
+				94C04D051D1E3C57006900C3 /* AssetsConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -299,6 +314,7 @@
 				94830C4D1D1D5F9300DD94E9 /* Assets.xcassets in Resources */,
 				94830C4B1D1D5F9300DD94E9 /* Main.storyboard in Resources */,
 				94830CBA1D1DBE2300DD94E9 /* Art.scnassets in Resources */,
+				94C04D081D1E4431006900C3 /* elephants.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,9 +340,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				94830C7A1D1D5FDB00DD94E9 /* ViewController.swift in Sources */,
+				94C04D001D1E37AB006900C3 /* QuestionsConstants.swift in Sources */,
 				94830CC01D1DCFA700DD94E9 /* Camera.swift in Sources */,
+				94C04D041D1E393A006900C3 /* KeyConstants.swift in Sources */,
+				94C04D021D1E385C006900C3 /* StringConstants.swift in Sources */,
 				94830CBC1D1DC84200DD94E9 /* Assets.swift in Sources */,
 				94830CBE1D1DCA8D00DD94E9 /* ViewFinder.swift in Sources */,
+				94C04D061D1E3C57006900C3 /* AssetsConstants.swift in Sources */,
 				94830C461D1D5F9300DD94E9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
